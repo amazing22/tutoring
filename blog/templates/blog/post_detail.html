@@ -11,6 +11,9 @@
         <link href="//fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        {% if user.is_authenticated %}
+          <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <div class="page-header">
             <h1><a href="">전공 과목 튜터링</a></h1>
         </div>
@@ -24,6 +27,7 @@
                                       {{ post.published_date }}
                                   </div>
                               {% endif %}
+                              <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
                               <h1>{{ post.title }}</h1>
                               <p>{{ post.text|linebreaksbr }}</p>
                           </div>
